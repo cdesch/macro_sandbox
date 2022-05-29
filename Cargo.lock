@@ -203,17 +203,12 @@ dependencies = [
  "chrono",
  "fern",
  "log",
- "macro_sandbox_lib",
  "opentelemetry",
  "opentelemetry-jaeger",
  "tracing",
  "tracing-opentelemetry",
  "tracing-subscriber",
 ]
-
-[[package]]
-name = "macro_sandbox_lib"
-version = "0.1.0"
 
 [[package]]
 name = "matchers"
