@@ -1,12 +1,12 @@
 
 
-use log;
 use std::error::Error;
 use opentelemetry::sdk::trace::Tracer;
 use opentelemetry::trace::TraceError;
 use tracing::info;
 use tracing_subscriber::layer::SubscriberExt;
 use tracing_subscriber::prelude::*;
+use log;
 
 //Init the Tracer
 fn init_tracer() -> Result<Tracer, TraceError> {
@@ -31,6 +31,7 @@ pub(crate) fn shave_all(number_of_yaks: i32) -> i32 {
 }
 
 fn first_function() {
+    log::info!("log info first_function");
     println!("first_function")
 }
 
@@ -44,7 +45,7 @@ fn main() -> Result<(), Box<dyn Error + Send + Sync + 'static>> {
     // Start Tracer
     let tracer = init_tracer().expect("Failed to initialize tracer"); 
     tracing_subscriber::registry() 
-        .with(tracing_subscriber::EnvFilter::new("TRACE")) 
+        // .with(tracing_subscriber::EnvFilter::new("TRACE")) 
         .with(tracing_opentelemetry::layer().with_tracer(tracer)) 
         .try_init()
         .expect("Failed to register tracer with registry");
