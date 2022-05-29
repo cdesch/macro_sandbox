@@ -8,7 +8,6 @@ use tracing::info;
 use tracing_subscriber::layer::SubscriberExt;
 use tracing_subscriber::prelude::*;
 
-
 //Init the Tracer
 fn init_tracer() -> Result<Tracer, TraceError> {
     opentelemetry_jaeger::new_pipeline()
@@ -72,6 +71,8 @@ fn main() -> Result<(), Box<dyn Error + Send + Sync + 'static>> {
     // Apply globally
     .apply()?;
     
+    println!("Starting to run functions");
+
     // Run some Functions
     first_function();
     second_function();
