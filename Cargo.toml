@@ -7,3 +7,11 @@ edition = "2021"
 
 [dependencies]
 macro_sandbox_lib = { path = "../macro_sandbox_lib" }
+tracing = "0.1.34"
+tracing-subscriber = {version = "0.3.11", features = ["std", "env-filter"]}
+tracing-opentelemetry = "0.17.2"
+opentelemetry-jaeger = "0.16.0"
+opentelemetry = "0.17"
+fern = "0.6.1"
+log = "0.4.17"
+chrono = "0.4"
